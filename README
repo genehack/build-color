@@ -1,0 +1,9 @@
+README
+======
+
+This is the source to 'color' and a small script to handle building it.
+
+You'll probably want to copy or link it into ~/bin after building
+it. If you use [MiseEnPlace][1], there's a .mise file here that will
+help with that.
+
