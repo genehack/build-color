@@ -7,3 +7,4 @@ You'll probably want to copy or link it into ~/bin after building
 it. If you use [MiseEnPlace][1], there's a .mise file here that will
 help with that.
 
+[1]: https://github.com/genehack/app-miseenplace
