@@ -1,0 +1,32 @@
+#! /opt/perl/bin/perl
+
+use strict;
+use warnings;
+use 5.010;
+
+use File::Copy;
+use File::Temp qw / tempdir /;
+use FindBin;
+
+my $COLOR_BINARY = "$FindBin::RealBin/color";
+
+my $TMP = tempdir( cleanup => 1 );
+
+`tar xzf $FindBin::RealBin/src/color-1.1.tar.gz -C $TMP`;
+
+die "Something went wrong with the un-tarring..."
+  unless -e -d "$TMP/color-1.1";
+
+chdir( "$TMP/color-1.1" );
+
+`make > /dev/null`;
+
+if ( -e './color' ) {
+  copy './color' , $COLOR_BINARY
+    or die "Copy failed: $!";
+  chmod 0755 , $COLOR_BINARY;
+}
+else {
+  say "whoops, something went wrong with the build! time to debug!";
+}
+
